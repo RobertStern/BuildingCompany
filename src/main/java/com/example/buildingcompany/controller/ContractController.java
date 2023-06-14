@@ -2,13 +2,11 @@ package com.example.buildingcompany.controller;
 
 import com.example.buildingcompany.model.Contract;
 import com.example.buildingcompany.service.ContractService;
+import com.example.buildingcompany.utilities.CompleteContract;
 import com.example.buildingcompany.utilities.ListToXmlConvertor;
 import lombok.NonNull;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,5 +34,10 @@ public class ContractController {
     public String downloadFile() {
         List<Contract> contracts = contractService.getAllContracts();
         return ListToXmlConvertor.convertJsonToXml(contracts);
+    }
+
+    @GetMapping("/evaluate/{employeeId}")
+    public ResponseEntity<CompleteContract> startEvaluatingContract(@PathVariable @NonNull Long employeeId, @RequestParam("contractId") Long contractId){
+        return ResponseEntity.ok(contractService.startEvaluatingContract(employeeId, contractId));
     }
 }

@@ -21,12 +21,7 @@ public class Contract {
     private Date dateDelivered;
     private Long employee_id;
     private String status;
-    //@JsonBackReference
-    //@ManyToOne(fetch = FetchType.LAZY)
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    //TODO vracat majitela contractu,
-    // Employee nech sa odkazuje do tabulky,
-    // Pridat podtriedy
 }
