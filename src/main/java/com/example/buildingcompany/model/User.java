@@ -1,5 +1,6 @@
 package com.example.buildingcompany.model;
 
+import com.example.buildingcompany.utilities.AbstractUser;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class User {
+public class User extends AbstractUser {
     private @Id
     @GeneratedValue Long id;
     private String name;

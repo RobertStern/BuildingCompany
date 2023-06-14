@@ -15,7 +15,6 @@ import java.sql.Date;
 public class Contract {
     private @Id
     @GeneratedValue Long id;
-    //private Long user_id;
     private Date datePlaced;
     private Date dateDelivered;
     private Long employee_id;
