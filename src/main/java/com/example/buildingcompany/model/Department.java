@@ -8,20 +8,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class House {
+public class Department {
     private @Id
     @GeneratedValue Long id;
     private String name;
-    private BigDecimal price;
-    private Integer delivery_time;
-    private Integer amount_available;
-    private BigDecimal area;
-    //TODO pridat house_material
+    private String location;
+    //TODO Pridat odkaz na super department
 }

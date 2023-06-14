@@ -1,8 +1,7 @@
 package com.example.buildingcompany.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,8 +16,13 @@ import lombok.NoArgsConstructor;
 public class Material {
     private @Id @GeneratedValue Long id;
     private String name;
-    private Integer supplier_id;
-    private Integer category_id;
     private Integer amount;
     private Integer minAmount;
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Supplier supplier;
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    private MaterialCategory category;
+    //TODO vypisovanie nefunuguje
 }

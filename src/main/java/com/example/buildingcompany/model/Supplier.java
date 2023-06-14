@@ -1,12 +1,13 @@
 package com.example.buildingcompany.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.Set;
 
 @Entity
 @Builder
@@ -19,4 +20,7 @@ public class Supplier {
     private String email;
     private String phone;
     private String address;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Material> materials;
 }

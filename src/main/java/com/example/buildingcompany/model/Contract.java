@@ -24,4 +24,7 @@ public class Contract {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+    //TODO vracat majitela contractu,
+    // Employee nech sa odkazuje do tabulky,
+    // Pridat podtriedy
 }

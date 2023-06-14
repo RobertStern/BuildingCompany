@@ -3,10 +3,7 @@ package com.example.buildingcompany.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -15,13 +12,11 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class House {
+@Data
+public class Tool {
     private @Id
     @GeneratedValue Long id;
     private String name;
-    private BigDecimal price;
-    private Integer delivery_time;
+    private BigDecimal cost;
     private Integer amount_available;
-    private BigDecimal area;
-    //TODO pridat house_material
 }
