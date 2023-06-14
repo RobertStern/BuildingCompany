@@ -14,14 +14,13 @@ import java.sql.Date;
 @Data
 public class Contract {
     private @Id
-    @GeneratedValue Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     private Date datePlaced;
     private Date dateDelivered;
     private Long employee_id;
     private String status;
     @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
     //TODO vracat majitela contractu,
     // Employee nech sa odkazuje do tabulky,

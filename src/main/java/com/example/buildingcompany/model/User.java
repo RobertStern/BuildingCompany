@@ -17,7 +17,7 @@ import java.util.Set;
 @Getter
 public class User extends AbstractUser {
     private @Id
-    @GeneratedValue Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     private String name;
     private String surname;
     private String email;
