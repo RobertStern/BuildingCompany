@@ -24,6 +24,6 @@ public class ContractService {
 
     public Contract getContractById(Long id) {
         Optional<Contract> contract = contractRepository.findById(id);
-        return contract.orElse(null); //TODO Spravit null objekt vracanie
+        return contract.orElse(null);
     }
 }
