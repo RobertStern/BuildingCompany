@@ -7,7 +7,10 @@ import lombok.NonNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -33,13 +36,6 @@ public class MaterialController {
         Material material = materialService.getMaterialById(id);
         MaterialDto materialDto = modelMapper.map(material, MaterialDto.class);
 
-        return ResponseEntity.ok(materialDto);
-    }
-
-    @PostMapping("{id}")
-    public ResponseEntity<MaterialDto> updateMaterial(@PathVariable @NonNull Long id, @RequestParam("amount") Integer amount) {
-        Material material = materialService.uploadMaterial(id,amount);
-        MaterialDto materialDto = modelMapper.map(material, MaterialDto.class);
         return ResponseEntity.ok(materialDto);
     }
 }

@@ -17,6 +17,7 @@ public class Tool {
     private @Id
     @GeneratedValue Long id;
     private String name;
-    private BigDecimal cost;
+    private double cost;
     private Integer amount_available;
+    private int amountOrdered;
 }
